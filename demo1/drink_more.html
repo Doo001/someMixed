@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>酒瓶问题</title>
+</head>
+<body>
+ 
+</body>
+<script>
+    function computeWine(num) {
+        var pingzi = num, gaizi = num;
+        var total = num;
+        recurrence();
+        function recurrence() {
+            if (pingzi < 3 && gaizi < 4) {
+                return;
+            }
+            if (pingzi >= 3) {
+                var beishu = Math.floor(pingzi / 3);
+                pingzi = pingzi - beishu * 3 + beishu;
+                gaizi = gaizi + beishu;
+                total = total + beishu;
+            } else {
+                var beishu1 = Math.floor(gaizi / 4);
+                gaizi = gaizi - beishu1 * 4 + beishu1;
+                pingzi = pingzi + beishu1;
+                total = total + beishu1;
+            }
+            recurrence();
+        }
+        return total;
+    }
+    console.log(computeWine(10));
+</script>
+</html>
