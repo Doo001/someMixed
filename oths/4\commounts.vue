@@ -22,7 +22,7 @@ export default {
       if (res && res.code=== +10000) {
         //do something
       } else {
-        this.$message.warning("暂无相关数据");
+        this.$message.warning(res.message);
       }
     },
   }
