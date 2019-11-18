@@ -8,29 +8,61 @@
  
 </body>
 <script>
-    function computeWine(num) {
-        var pingzi = num, gaizi = num;
-        var total = num;
-        recurrence();
-        function recurrence() {
-            if (pingzi < 3 && gaizi < 4) {
-                return;
-            }
-            if (pingzi >= 3) {
-                var beishu = Math.floor(pingzi / 3);
-                pingzi = pingzi - beishu * 3 + beishu;
-                gaizi = gaizi + beishu;
-                total = total + beishu;
-            } else {
-                var beishu1 = Math.floor(gaizi / 4);
-                gaizi = gaizi - beishu1 * 4 + beishu1;
-                pingzi = pingzi + beishu1;
-                total = total + beishu1;
-            }
-            recurrence();
-        }
-        return total;
+    // function computeWine(num) {
+    //     var pingzi = num, gaizi = num;
+    //     var total = num;
+    //     recurrence();
+    //     function recurrence() {
+    //         if (pingzi < 3 && gaizi < 4) {
+    //             return;
+    //         }
+    //         if (pingzi >= 3) {
+    //             var beishu = Math.floor(pingzi / 3);
+    //             pingzi = pingzi - beishu * 3 + beishu;
+    //             gaizi = gaizi + beishu;
+    //             total = total + beishu;
+    //         } else {
+    //             var beishu1 = Math.floor(gaizi / 4);
+    //             gaizi = gaizi - beishu1 * 4 + beishu1;
+    //             pingzi = pingzi + beishu1;
+    //             total = total + beishu1;
+    //         }
+    //         recurrence();
+    //     }
+    //     return total;
+    // }
+    // console.log(computeWine(10));
+
+    async function fath(num){
+      let pingzi=num,gaizi=num;
+      var total = num;
+      let res = await son(pingzi,gaizi,total);
+      console.log(res)
     }
-    console.log(computeWine(10));
+    function son(pingzi,gaizi,total){
+      return new Promise((resol,reject)=>{
+        if(pingzi<3&& gaizi<4){
+          return
+        }
+        if(pingzi>=3){
+          var oths = Math.floor(pingzi/3);
+
+          pingzi = pingzi - oths*3 +oths;
+          gaizi = gaizi+oths;
+          total = total+oths;
+        }else{
+          var oths = Math.floor(gaizi/4)
+          gaizi = gaizi-oths*4+oths;
+          pingzi = pingzi+oths;
+          total = total+oths
+        }
+        son()so.prte
+        resol(total)
+      })
+    }
+    fath(10)
+
+
+
 </script>
 </html>
